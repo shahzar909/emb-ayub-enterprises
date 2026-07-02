@@ -4,7 +4,7 @@ import { motion, useInView } from 'framer-motion';
 import { useMemo, useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, Clock, Search, Mail } from 'lucide-react';
+import { ArrowRight, Clock, Search, TrendingUp, Mail } from 'lucide-react';
 
 const articles = [
   {
@@ -169,11 +169,10 @@ export function BlogSection() {
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
                 className={`rounded-full px-5 py-2 text-xs font-semibold uppercase tracking-wider
-                            transition-all duration-300 ${
-                  activeCategory === cat
+                            transition-all duration-300 ${activeCategory === cat
                     ? 'bg-[#6B21A8] text-white shadow-lg shadow-[#6B21A8]/20'
                     : 'border border-[#E5DFF0] bg-white text-[#6B5A80] hover:border-[#6B21A8] hover:text-[#6B21A8]'
-                }`}
+                  }`}
               >
                 {cat}
               </button>
@@ -298,15 +297,15 @@ export function BlogSection() {
             </p>
 
             <div className="mx-auto mt-10 flex max-w-2xl flex-col gap-4 sm:flex-row">
-  <div className="relative flex-1">
-    <Mail
-      className="absolute left-5 top-1/2 -translate-y-1/2 h-5 w-5 text-[#D4AF63]"
-    />
+              <div className="relative flex-1">
+                <Mail
+                  className="absolute left-5 top-1/2 -translate-y-1/2 h-5 w-5 text-[#D4AF63]"
+                />
 
-    <input
-      type="email"
-      placeholder="Enter your email address"
-      className="
+                <input
+                  type="email"
+                  placeholder="Enter your email address"
+                  className="
         h-16
         w-full
         rounded-2xl
@@ -329,11 +328,11 @@ export function BlogSection() {
         focus:ring-4
         focus:ring-[#D4AF63]/20
       "
-    />
-  </div>
+                />
+              </div>
 
-  <button
-    className="
+              <button
+                className="
       h-16
       rounded-2xl
       px-10
@@ -347,13 +346,13 @@ export function BlogSection() {
       hover:shadow-[#C89A45]/20
       active:scale-95
     "
-    style={{
-      background: "linear-gradient(135deg, #C89A45, #D4AF63)",
-    }}
-  >
-    Subscribe
-  </button>
-</div>
+                style={{
+                  background: "linear-gradient(135deg, #C89A45, #D4AF63)",
+                }}
+              >
+                Subscribe
+              </button>
+            </div>
 
             {/* Gold bottom accent line */}
             <div className="mx-auto mt-10 h-px w-24 rounded-full"
