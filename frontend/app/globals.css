@@ -1,0 +1,658 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =====================================================
+   EMB DESIGN SYSTEM
+===================================================== */
+
+:root {
+
+  /* Backgrounds */
+  --background: #F7F4FB;
+  --surface: #FFFFFF;
+  --surface-secondary: #F3ECFB;
+  --surface-tertiary: #ECE2F8;
+
+  /* Brand */
+  --primary: #431E6F;
+  --primary-light: #5A2D82;
+  --primary-dark: #2C114B;
+
+  /* Accent */
+  --accent: #C89A45;
+  --accent-light: #D8B25C;
+  --accent-dark: #A9782D;
+
+  /* Text */
+  --text: #2C114B;
+  --text-secondary: #5E5470;
+  --text-tertiary: #847A97;
+  --text-light: #FFFFFF;
+
+  /* Border */
+  --border: rgba(67,30,111,.10);
+
+  /* Shadow */
+  --shadow:
+      0 18px 45px rgba(44,17,75,.08);
+
+  --shadow-hover:
+      0 28px 70px rgba(44,17,75,.14);
+
+  /* Radius */
+  --radius-lg:20px;
+  --radius-xl:28px;
+  --radius-2xl:32px;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  text-rendering:optimizeLegibility;
+}
+
+body{
+
+  font-family:var(--font-sans);
+
+  background:var(--background);
+
+  color:var(--text);
+
+  line-height:1.6;
+
+  overflow-x:hidden;
+}
+
+/* ===========================================
+ Selection
+=========================================== */
+
+::selection{
+
+  background:rgba(200,154,69,.35);
+
+  color:white;
+
+}
+
+/* ===========================================
+ Scrollbar
+=========================================== */
+
+::-webkit-scrollbar{
+
+  width:8px;
+
+}
+
+::-webkit-scrollbar-track{
+
+  background:transparent;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+  background:#431E6F;
+
+  border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+  background:#5A2D82;
+
+}
+
+/* ===========================================
+ Typography
+=========================================== */
+
+@layer utilities{
+
+.text-balance{
+
+text-wrap:balance;
+
+}
+
+.font-feature{
+
+font-feature-settings:
+'cv02',
+'cv03',
+'cv04',
+'cv11';
+
+}
+
+.tracking-tighter-xl{
+
+letter-spacing:-.04em;
+
+}
+
+.tracking-tighter-lg{
+
+letter-spacing:-.03em;
+
+}
+
+/* ===========================================
+ Premium Gradient
+=========================================== */
+
+.gradient-text{
+
+background:linear-gradient(
+135deg,
+#431E6F 0%,
+#5A2D82 55%,
+#C89A45 100%
+);
+
+-webkit-background-clip:text;
+
+-webkit-text-fill-color:transparent;
+
+background-clip:text;
+
+}
+
+.gradient-text-gold{
+
+background:linear-gradient(
+135deg,
+#C89A45,
+#D8B25C
+);
+
+-webkit-background-clip:text;
+
+-webkit-text-fill-color:transparent;
+
+background-clip:text;
+
+}
+
+/* ===========================================
+ Layout
+=========================================== */
+
+.section-padding{
+
+@apply py-24 md:py-32 lg:py-40;
+
+}
+
+.container-tight{
+
+@apply mx-auto max-w-5xl px-6 lg:px-8;
+
+}
+
+.container-wide{
+
+@apply mx-auto max-w-7xl px-6 lg:px-8;
+
+}
+
+/* ===========================================
+ Premium Navbar
+=========================================== */
+
+.nav-glass{
+
+background:
+rgba(67,30,111,.82);
+
+backdrop-filter:
+blur(20px);
+
+-webkit-backdrop-filter:
+blur(20px);
+
+border-bottom:
+1px solid rgba(255,255,255,.08);
+
+box-shadow:
+0 8px 24px rgba(44,17,75,.08);
+
+}
+
+}
+
+/* ===========================================
+ Grid Background
+=========================================== */
+
+.grid-bg{
+
+background-image:
+
+linear-gradient(
+
+rgba(67,30,111,.05) 1px,
+
+transparent 1px
+
+),
+
+linear-gradient(
+
+90deg,
+
+rgba(67,30,111,.05) 1px,
+
+transparent 1px
+
+);
+
+background-size:
+
+60px 60px;
+
+}
+
+/* ===========================================
+ Noise Overlay
+=========================================== */
+
+.noise::after{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+pointer-events:none;
+
+opacity:.18;
+
+background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+
+}
+/* =====================================================
+   Premium Card Hover Effects
+===================================================== */
+
+.venture-card{
+  transition:
+    transform .45s cubic-bezier(.22,1,.36,1),
+    box-shadow .35s ease,
+    border-color .35s ease,
+    background .35s ease;
+}
+
+.venture-card:hover{
+
+  transform:translateY(-6px);
+
+  border-color:rgba(200,154,69,.25);
+
+  box-shadow:
+    0 30px 80px rgba(44,17,75,.12),
+    0 12px 30px rgba(44,17,75,.08);
+
+}
+
+/* =====================================================
+   Service Cards
+===================================================== */
+
+.service-card{
+
+  transition:
+    transform .35s ease,
+    box-shadow .35s ease,
+    border-color .35s ease,
+    background .35s ease;
+
+}
+
+.service-card:hover{
+
+  transform:translateY(-4px);
+
+  border-color:rgba(200,154,69,.25);
+
+  box-shadow:
+    0 22px 60px rgba(44,17,75,.10);
+
+}
+
+/* =====================================================
+   Shimmer
+===================================================== */
+
+.shimmer{
+
+  background:
+
+  linear-gradient(
+
+  90deg,
+
+  #F7F4FB 20%,
+
+  #FFFFFF 50%,
+
+  #F7F4FB 80%
+
+  );
+
+  background-size:200% 100%;
+
+  animation:shimmer 1.6s linear infinite;
+
+}
+
+/* =====================================================
+   Keyframes
+===================================================== */
+
+@keyframes shimmer{
+
+  0%{
+
+    background-position:-200% 0;
+
+  }
+
+  100%{
+
+    background-position:200% 0;
+
+  }
+
+}
+
+@keyframes countUp{
+
+  from{
+
+    opacity:0;
+
+    transform:translateY(10px);
+
+  }
+
+  to{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+  }
+
+}
+
+@keyframes float{
+
+  0%,100%{
+
+    transform:translateY(0);
+
+  }
+
+  50%{
+
+    transform:translateY(-12px);
+
+  }
+
+}
+
+/* =====================================================
+   Floating Orb
+===================================================== */
+
+.orb{
+
+  position:absolute;
+
+  border-radius:999px;
+
+  pointer-events:none;
+
+  filter:blur(70px);
+
+  opacity:.45;
+
+}
+
+/* =====================================================
+   Admin Sidebar
+===================================================== */
+
+.admin-sidebar-link{
+
+  @apply flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-ink-secondary transition-all duration-300;
+
+}
+
+.admin-sidebar-link:hover{
+
+  @apply bg-surface text-ink;
+
+}
+
+.admin-sidebar-link.active{
+
+  background:rgba(200,154,69,.12);
+
+  color:#C89A45;
+
+}
+
+/* =====================================================
+   Forms
+===================================================== */
+
+.form-label{
+
+  @apply mb-2 block text-sm font-medium text-ink-secondary;
+
+}
+
+.form-input{
+
+  @apply w-full rounded-xl border border-border bg-surface px-4 py-3 text-sm text-ink placeholder:text-ink-quaternary outline-none transition-all duration-300;
+
+}
+
+.form-input:focus{
+
+  border-color:#C89A45;
+
+  box-shadow:
+
+  0 0 0 4px rgba(200,154,69,.12);
+
+}
+
+/* =====================================================
+   Blog Typography
+===================================================== */
+
+.blog-content h1,
+.blog-content h2,
+.blog-content h3{
+
+  @apply mt-8 mb-4 font-semibold text-ink;
+
+}
+
+.blog-content h2{
+
+  @apply text-2xl;
+
+}
+
+.blog-content h3{
+
+  @apply text-xl;
+
+}
+
+.blog-content p{
+
+  @apply mb-4 leading-relaxed text-ink-secondary;
+
+}
+
+.blog-content ul,
+.blog-content ol{
+
+  @apply mb-5 space-y-2 pl-6;
+
+}
+
+.blog-content li{
+
+  @apply text-ink-secondary;
+
+}
+
+.blog-content a{
+
+  color:#C89A45;
+
+  text-decoration:none;
+
+  transition:all .3s ease;
+
+}
+
+.blog-content a:hover{
+
+  color:#A9782D;
+
+  text-decoration:underline;
+
+}
+
+.blog-content blockquote{
+
+  border-left:4px solid #C89A45;
+
+  padding-left:18px;
+
+  margin:2rem 0;
+
+  color:var(--text-secondary);
+
+  font-style:italic;
+
+}
+
+.blog-content code{
+
+  @apply rounded bg-surface px-1.5 py-0.5 font-mono text-sm;
+
+}
+
+.blog-content pre{
+
+  @apply mb-5 overflow-x-auto rounded-2xl bg-surface p-5;
+
+}
+
+.blog-content img{
+
+  @apply my-8 w-full rounded-2xl;
+
+}
+
+/* =====================================================
+   Smooth Focus
+===================================================== */
+
+button,
+a,
+input,
+textarea{
+
+  transition:
+    color .3s ease,
+    background .3s ease,
+    border-color .3s ease,
+    box-shadow .3s ease,
+    transform .3s ease;
+
+}
+
+/* =====================================================
+   Premium Divider
+===================================================== */
+
+.divider{
+
+  width:100%;
+
+  height:1px;
+
+  background:
+
+  linear-gradient(
+
+  90deg,
+
+  transparent,
+
+  rgba(67,30,111,.10),
+
+  transparent
+
+  );
+
+}
+
+/* =====================================================
+   Glass Card
+===================================================== */
+
+.glass{
+
+  background:rgba(255,255,255,.72);
+
+  backdrop-filter:blur(16px);
+
+  -webkit-backdrop-filter:blur(16px);
+
+  border:1px solid rgba(67,30,111,.08);
+
+}
+
+/* =====================================================
+   Luxury Glow
+===================================================== */
+
+.gold-glow{
+
+  box-shadow:
+
+  0 0 30px rgba(200,154,69,.18);
+
+}
+
+.purple-glow{
+
+  box-shadow:
+
+  0 0 40px rgba(67,30,111,.16);
+
+}
