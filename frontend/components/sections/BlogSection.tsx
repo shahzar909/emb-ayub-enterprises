@@ -4,7 +4,7 @@ import { motion, useInView } from 'framer-motion';
 import { useMemo, useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, Clock, Search, TrendingUp } from 'lucide-react';
+import { ArrowRight, Clock, Search, Mail } from 'lucide-react';
 
 const articles = [
   {
@@ -128,7 +128,7 @@ export function BlogSection() {
         {/* ── Header ── */}
         <FadeUp>
           <div className="text-center max-w-3xl mx-auto mb-14">
-            <span className="inline-flex items-center gap-2 rounded-full border border-[#D4AF63]/30
+            <span className="inline-flex items-center gap-2 rounded-full border border-[#C89A45]/50
                              bg-[#D4AF63]/10 px-4 py-1.5 text-xs font-semibold uppercase
                              tracking-[0.2em] text-[#C89A45]">
               <TrendingUp className="h-3.5 w-3.5" />
@@ -297,22 +297,63 @@ export function BlogSection() {
               leadership and long-term growth directly in your inbox.
             </p>
 
-            <div className="mx-auto mt-10 flex max-w-md flex-col gap-3 sm:flex-row">
-              <input
-                type="email"
-                placeholder="Enter your email address"
-                className="h-13 flex-1 rounded-xl border border-white/10 bg-white/8
-                           px-5 text-sm text-white placeholder:text-white/30
-                           outline-none focus:border-[#D4AF63]/50 focus:bg-white/12
-                           transition-all duration-300"
-              />
-              <button
-                className="h-13 rounded-xl px-7 text-sm font-bold text-white
-                           transition-all duration-300 hover:scale-[1.02] active:scale-95"
-                style={{ background: 'linear-gradient(135deg, #C89A45, #D4AF63)' }}>
-                Subscribe
-              </button>
-            </div>
+            <div className="mx-auto mt-10 flex max-w-2xl flex-col gap-4 sm:flex-row">
+  <div className="relative flex-1">
+    <Mail
+      className="absolute left-5 top-1/2 -translate-y-1/2 h-5 w-5 text-[#D4AF63]"
+    />
+
+    <input
+      type="email"
+      placeholder="Enter your email address"
+      className="
+        h-16
+        w-full
+        rounded-2xl
+        border
+        border-[#D4AF63]/30
+        bg-[#3F275D]
+        pl-14
+        pr-5
+        text-base
+        font-medium
+        text-white
+        placeholder:text-white/60
+        caret-[#D4AF63]
+        backdrop-blur-md
+        outline-none
+        transition-all
+        duration-300
+        focus:border-[#D4AF63]
+        focus:bg-white/15
+        focus:ring-4
+        focus:ring-[#D4AF63]/20
+      "
+    />
+  </div>
+
+  <button
+    className="
+      h-16
+      rounded-2xl
+      px-10
+      text-base
+      font-semibold
+      text-white
+      transition-all
+      duration-300
+      hover:scale-[1.02]
+      hover:shadow-xl
+      hover:shadow-[#C89A45]/20
+      active:scale-95
+    "
+    style={{
+      background: "linear-gradient(135deg, #C89A45, #D4AF63)",
+    }}
+  >
+    Subscribe
+  </button>
+</div>
 
             {/* Gold bottom accent line */}
             <div className="mx-auto mt-10 h-px w-24 rounded-full"

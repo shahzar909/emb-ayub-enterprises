@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowRight, Clock, Search, TrendingUp } from 'lucide-react';
+import { ArrowRight, Clock, Search, TrendingUp, Mail } from 'lucide-react';
 import { api, type Blog, type PaginatedResponse } from '@/lib/api';
 import { formatDateShort } from '@/lib/utils';
 
@@ -352,26 +352,62 @@ export default function BlogListClient() {
                 insights directly in your inbox.
               </p>
 
-              <div className="mx-auto mt-10 flex max-w-md flex-col gap-3 sm:flex-row">
-                <input
-                  type="email"
-                  value={subscriberEmail}
-                  onChange={(e) => setSubscriberEmail(e.target.value)}
-                  placeholder="Enter your email address"
-                  className="h-12 flex-1 rounded-xl border border-white/10 bg-white/8
-                             px-5 text-sm text-white placeholder:text-white/30
-                             outline-none focus:border-[#D4AF63]/50 transition-all duration-300"
-                />
-                <button
-                  type="button"
-                  onClick={handleSubscribe}
-                  className="h-12 rounded-xl px-7 text-sm font-bold text-white
-                             transition-all duration-300 hover:scale-[1.02] active:scale-95"
-                  style={{ background: 'linear-gradient(135deg, #C89A45, #D4AF63)' }}
-                >
-                  Subscribe
-                </button>
-              </div>
+              <div className="mx-auto mt-10 flex max-w-2xl flex-col gap-4 sm:flex-row">
+  <div className="relative flex-1">
+  <Mail className="absolute left-5 top-1/2 -translate-y-1/2 h-5 w-5 text-[#D4AF63]" />
+
+  <input
+    type="email"
+    value={subscriberEmail}
+    onChange={(e) => setSubscriberEmail(e.target.value)}
+    placeholder="Enter your email address"
+    className="
+      h-16
+      w-full
+      rounded-2xl
+      border
+      border-[#D4AF63]/40
+      bg-[#3B2755]
+      pl-14
+      pr-5
+      text-base
+      font-medium
+      text-white
+      placeholder:text-white/60
+      caret-[#D4AF63]
+      outline-none
+      transition-all
+      duration-300
+      focus:border-[#D4AF63]
+      focus:ring-4
+      focus:ring-[#D4AF63]/20
+    "
+  />
+</div>
+  <button
+    type="button"
+    onClick={handleSubscribe}
+    className="
+      h-16
+      rounded-2xl
+      px-10
+      text-base
+      font-semibold
+      text-white
+      transition-all
+      duration-300
+      hover:scale-[1.02]
+      hover:shadow-xl
+      hover:shadow-[#C89A45]/20
+      active:scale-95
+    "
+    style={{
+      background: "linear-gradient(135deg, #C89A45, #D4AF63)",
+    }}
+  >
+    Subscribe
+  </button>
+</div>
 
               {subscribed && (
                 <motion.div
